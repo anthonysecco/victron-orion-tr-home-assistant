@@ -1,0 +1,14 @@
+type: custom:mushroom-template-card
+layout: vertical
+primary: "{{ states('sensor.shelly1_device_state_charger_1') }}"
+secondary: "{{ states('sensor.shelly1_off_reason_charger_1') }}"
+icon: mdi:state-machine
+icon_color: |
+  {% if is_state('binary_sensor.shelly1_on_off_charger_1', 'on') %}
+    yellow
+  {% else %}
+    grey
+  {% endif %}
+entity: binary_sensor.shelly1_on_off_charger_1
+fill_container: true
+multiline_secondary: true
