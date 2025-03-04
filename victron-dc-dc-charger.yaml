@@ -51,12 +51,8 @@ status_led:
 
 victron_ble:
   - id: dcdc_charger_1
-    mac_address: "e6d5dd0e1ede"    
-    bindkey: "5b38e32d2ab3bafc50561794330c901a"
-
-  - id: dcdc_charger_2
-    mac_address: "d3268b394128"    
-    bindkey: "0c32440282fd4aaaeb94b9eac8e11a85"
+    mac_address: "[INSERT DEVICE MAC ADDRESS]"    
+    bindkey: "[INSERT DEVICE BIND KEY"
 
 # Sensors
 ################################################################################
