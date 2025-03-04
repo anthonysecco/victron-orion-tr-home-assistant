@@ -4,6 +4,8 @@ This repository enables you to integrate data from a Victron Orion-Tr DC-DC char
 
 ![Orion-Tr Data in Home Assistant](https://github.com/user-attachments/assets/812508dd-5cdc-4c7f-be6a-b3cc1ba8fe03)
 
+^ The above has two DC-DC chargers.  In this snapshot, the vehicle is off.
+
 This setup is largely based on [Fabian-Schmidt's ESPHome Victron BLE project](https://github.com/Fabian-Schmidt/esphome-victron_ble).
 
 ---
