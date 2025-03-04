@@ -1,0 +1,136 @@
+## Written by https://github.com/anthonysecco
+
+# More Details on the ESPHome Victron BLE Component visit https://github.com/Fabian-Schmidt/esphome-victron_ble
+
+# Device Settings
+################################################################################
+esphome:
+  name: victron-dc-dc-charger
+  friendly_name: "Victron DC-DC Charger"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf #This framework is recommended when using Bluetooth on ESP32.
+
+preferences:
+  flash_write_interval: 15min # Throttles writing parameters to the flash memory to reduce memory wear.
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/Fabian-Schmidt/esphome-victron_ble
+      ref: main
+
+# Connectivity
+################################################################################
+wifi:
+  ap:
+    password: "12345678"
+
+captive_portal:
+
+esp32_ble_tracker:
+
+# Core Services
+################################################################################
+logger: # The following reduce log chatter when in production.  Comment out the below for debugging if needed.
+  level: INFO
+  logs:
+    victron_ble: WARN
+    sensor: WARN
+    text_sensor: WARN
+
+api:
+
+ota:
+  - platform: esphome
+
+status_led:
+  pin: GPIO14 # Adjust as needed.
+
+victron_ble:
+  - id: dcdc_charger_1
+    mac_address: "e6d5dd0e1ede"    
+    bindkey: "5b38e32d2ab3bafc50561794330c901a"
+
+  - id: dcdc_charger_2
+    mac_address: "d3268b394128"    
+    bindkey: "0c32440282fd4aaaeb94b9eac8e11a85"
+
+# Sensors
+################################################################################
+binary_sensor:
+  - platform: victron_ble
+    victron_ble_id: dcdc_charger_1
+    name: "On/Off Charger 1 "
+    type: DEVICE_STATE_OFF
+    icon: "mdi:power"
+    device_class: power
+    disabled_by_default: True
+    filters:
+      - invert:
+
+  - platform: victron_ble
+    victron_ble_id: dcdc_charger_1
+    name: "State Fault Charger 1 "
+    type: DEVICE_STATE_FAULT
+    icon: "mdi:alert"
+    device_class: problem
+    disabled_by_default: True
+
+sensor:
+  ## Raw BLE Sensors (Internal)
+  - platform: victron_ble
+    victron_ble_id: dcdc_charger_1
+    name: "Raw Charger 1 Input Voltage"
+    id: raw_charger_1_input_voltage
+    type: INPUT_VOLTAGE
+    internal: true
+
+  - platform: victron_ble
+    victron_ble_id: dcdc_charger_1
+    name: "Raw Charger 1 Output Voltage"
+    id: raw_charger_1_output_voltage
+    type: OUTPUT_VOLTAGE
+    internal: true
+
+  - platform: template
+    id: charger_1_input_voltage
+    name: "Input Voltage Charger 1 "
+    unit_of_measurement: "V"
+    icon: "mdi:flash"
+    device_class: voltage
+    state_class: measurement
+    lambda: |-
+      return id(raw_charger_1_input_voltage).state;
+
+  - platform: template
+    id: charger_1_output_voltage
+    name: "Output Voltage Charger 1 "
+    unit_of_measurement: "V"
+    icon: "mdi:flash"
+    device_class: voltage
+    state_class: measurement
+    lambda: |-
+      return id(raw_charger_1_output_voltage).state;
+
+text_sensor:
+  - platform: victron_ble
+    victron_ble_id: dcdc_charger_1
+    name: "Error Charger 1 "
+    type: CHARGER_ERROR
+    icon: "mdi:alert-circle"
+    disabled_by_default: True
+
+  - platform: victron_ble
+    victron_ble_id: dcdc_charger_1
+    name: "Device State Charger 1"
+    type: DEVICE_STATE
+    icon: "mdi:state-machine"
+  
+  - platform: victron_ble
+    victron_ble_id: dcdc_charger_1
+    name: "Off Reason Charger 1 "
+    type: OFF_REASON
+    icon: "mdi:power-settings"
