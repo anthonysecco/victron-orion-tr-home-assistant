@@ -66,6 +66,9 @@ In this configuration, the charger by default is 'on'.
   - If Bluetooth messages stop, ensure your vehicle is **running** to keep power flowing to the input terminals.
   - The physical distance (range) is also very limited.  Ensure your ESP32 is within a meter or two.
 
+- **Vehicle Voltage Readings When Off:**  
+  On 2021+ Ford Transit when using the CCP (Customer Connection Point), voltage readings will drop to 5v when the vehicle goes into power saving mode when the vehicle turns off. 
+
 ### Other Victron Devices?
 
 This ESPHome component is a great alternative for users who:
