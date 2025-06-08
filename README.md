@@ -1,3 +1,5 @@
+![logo](https://github.com/user-attachments/assets/eea0747a-b01f-41ca-afb4-589725fbecd0)
+
 # Victron Orion-Tr DC-DC Charger Data to Home Assistant
 
 This repository enables you to integrate data from a Victron Orion-Tr DC-DC charger into Home Assistant like below:
