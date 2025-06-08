@@ -1,4 +1,4 @@
-![logo](https://github.com/user-attachments/assets/eea0747a-b01f-41ca-afb4-589725fbecd0)
+![victron_ble_logo](https://github.com/user-attachments/assets/10f85c0d-0de1-4c5c-becb-51f812454c00)
 
 # Victron Orion-Tr DC-DC Charger Data to Home Assistant
 
