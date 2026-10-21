@@ -77,3 +77,7 @@ This ESPHome component is a great alternative for users who:
 - Don't want to invest in a **Cerbo GX** or an **RPi with VE.Bus dongles**.
 - Have **Bluetooth-based Victron devices**.
 - Want **real-time data** integration with Home Assistant.
+
+## AI Disclosure
+
+This project was built largely with AI coding tools (Claude). I directed the design and reviewed the changes, but most of the code and documentation was written by AI. Please review the code before relying on it, and open an issue if you find a problem.
