@@ -2,6 +2,8 @@
 
 # Victron Orion-Tr DC-DC Charger Data to Home Assistant
 
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-donate-yellow.svg)](https://www.buymeacoffee.com/anthonysecco)
+
 This repository enables you to integrate data from a Victron Orion-Tr DC-DC charger into Home Assistant like below:
 
 ![Orion-Tr Data in Home Assistant](https://github.com/user-attachments/assets/812508dd-5cdc-4c7f-be6a-b3cc1ba8fe03)
@@ -77,6 +79,10 @@ This ESPHome component is a great alternative for users who:
 - Don't want to invest in a **Cerbo GX** or an **RPi with VE.Bus dongles**.
 - Have **Bluetooth-based Victron devices**.
 - Want **real-time data** integration with Home Assistant.
+
+## 💖 Support
+
+If you found this project useful, consider [buying me a coffee](https://www.buymeacoffee.com/anthonysecco). ☕
 
 ## AI Disclosure
 
